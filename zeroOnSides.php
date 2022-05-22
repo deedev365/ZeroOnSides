@@ -2,15 +2,16 @@
     
 class zeroOnSides
 {
-    
-    public $input = [
+    /** int[] */
+    private $input = [
             [3,5,6,0,7,0,1],
             [5,0,0,6,0,8],
             [1,2,3,0,0,0,0],
             [1,2,3],
         ];
-
-    public $output = [
+    
+    /** int[] */
+    private $output = [
             [0,3,5,6,7,1,0],
             [0,0,5,6,8,0],
             [0,0,1,2,3,0,0],
@@ -22,7 +23,7 @@ class zeroOnSides
      * 
      * @return int[]
      */ 
-    public function convert(array $numbers): array
+    private function convert(array $numbers): array
         {
             $count = 0;
 
@@ -51,12 +52,12 @@ class zeroOnSides
      * 
      * @return bool 
      */ 
-    public function checker(array $input, array $output): bool
+    private function checker(array $input, array $output): bool
     {
         return $output == $this->convert($input);
     }
 
-    public function checking(): void
+    public function show(): void
     {
         foreach($this->input as $key => $input) {
             var_dump($this->checker($input, $this->output[$key]));
@@ -66,4 +67,4 @@ class zeroOnSides
 }
 
 $zero = new zeroOnSides();
-$zero->checking(); // true, true, true, true
+$zero->show(); // true, true, true, true
